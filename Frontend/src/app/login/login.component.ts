@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   CLIENT_ID =
-  "473119340255-ealunbq5k5k05c14s8qgoae0dkeifgg7.apps.googleusercontent.com";
+  "Your client id";
   AUTHORIZE_URI = "https://accounts.google.com/o/oauth2/v2/auth";
 
   LoginWithGoogle(){

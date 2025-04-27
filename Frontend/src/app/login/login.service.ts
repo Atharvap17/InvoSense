@@ -4,7 +4,7 @@ declare var google: any;
   providedIn: 'root'
 })
 export class AuthService {
-  private clientId = '989260119545-r5kth8rv9rnu81er046kdhpvk564rjda.apps.googleusercontent.com';
+  private clientId = 'Your client id';
 
   constructor() {
     // this.loadGoogleAuth();
