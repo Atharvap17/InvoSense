@@ -1,0 +1,141 @@
+<button (click)="goBack()" class="back-button">← Back</button>
+
+<div class="upload-container" *ngIf="submit">
+    <h2>Upload Invoice</h2>
+    <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+  </div>
+  
+
+<div class="row p-3" *ngIf="pdfSrc">
+  <div class="col-md-6">
+    <mat-card>
+      <div>
+        <h3>Preview</h3>
+        <embed [src]="pdfSrc" type="application/pdf" width="100%" height="600px" />
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-md-6" *ngIf="!loader">
+    <mat-card>
+      <h3>Details</h3>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>Invoice Number</mat-label>
+            <input type="text" matInput [(ngModel)]="data.invoice_number">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>GSTIN</mat-label>
+            <input type="text" matInput [(ngModel)]="data.gstin"> 
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>RECIEVER DETAILS</mat-label>
+            <textarea matInput [(ngModel)]="data.receiver_details"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>PO NUMBER</mat-label>
+            <input type="text" matInput [(ngModel)]="data.po_number">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>PO DATE</mat-label>
+            <input type="text" matInput [(ngModel)]="data.po_date">
+          </mat-form-field>
+        </div>
+
+       
+
+        
+
+        <div class="col-md-12 mb-3">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Sr No</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>CGST</th>
+                  <th>SGST</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of data.products">
+                  <td>{{item.sr_no}}</td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.name">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.quantity">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.rate">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.cgst_amount">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.sgst_amount">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="item.total_amount">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>VEHICLE NUMBER</mat-label>
+            <input type="text" matInput  [(ngModel)]="data.vehicle_number">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>TOTAL CGST</mat-label>
+            <input type="text" matInput [(ngModel)]="data.total_cgst">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>TOTAL SGST</mat-label>
+            <input type="text" matInput [(ngModel)]="data.total_sgst">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>TOTAL Amount</mat-label>
+            <input type="text" matInput [(ngModel)]="data.total_amount">
+          </mat-form-field>
+        </div>
+
+
+      </div>
+    </mat-card>
+  </div>
+
+  <div *ngIf="loader" class="col-md-6" style="display: flex; justify-content: center;">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div class="button mt-3 d-flex justify-content-end mr-3" *ngIf="pdfSrc && submit">
+  <button mat-flat-button (click)="submitData()">Submit</button>
+</div>

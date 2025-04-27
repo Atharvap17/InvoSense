@@ -1,0 +1,76 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e5e5e5, #d3dee4); // Elegant corporate gradient
+  color: #090909; // Neutral text color for accessibility
+}
+
+.spacer {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  width: 240px; // Slightly larger for better visual impact
+  height: 200px;
+  background: rgba(255, 255, 255, 0.15); // Enhanced glassmorphism effect
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px; // Better padding for content alignment
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Softer shadow for a professional touch
+  border: 1px solid rgba(255, 255, 255, 0.3); // Subtle border for depth
+}
+
+.action-card:hover {
+  background: rgba(255, 255, 255, 0.25); // Distinct hover effect for interactivity
+  transform: translateY(-6px); // Slight lift for hover feedback
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); // Enhanced hover shadow
+}
+
+mat-icon {
+  color: white;
+  margin-right: 0.5rem; // Gold icons for a premium corporate look
+}
+
+.action-text {
+  font-size: 20px; // Larger font size for emphasis
+  font-weight: 600; // Bold yet sleek
+  color: #444444; // Neutral color for better readability
+}
+
+.logout{
+  position: fixed;
+    top: 60px;
+    right: 35px;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 10px;
+    font-weight: 700;
+    z-index: 10;
+    cursor: pointer;
+}
+.pos-fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9; // Semi-transparent background for modal
+}

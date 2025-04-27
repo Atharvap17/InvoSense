@@ -1,0 +1,71 @@
+<mat-toolbar color="primary">
+  <div class="d-flex w-100 justify-content-between align-items-center">
+    <div>
+      <img src="images/Growth-removebg.png" width="70" height="70">
+      <span style="font-size: 24px; font-weight: bold; margin-left: 10px;">Invosense</span>
+    </div>
+    <div (click)="showLogout = !showLogout" style="width: 60px; height: 60px; overflow: hidden; cursor: pointer; border-radius: 50%;">
+      <img [src]="photoUrl" alt="User" height="100%" width="100%">
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- Logout Section -->
+<div class="logout" (click)="logout()" *ngIf="showLogout" style="position: fixed; top: 70px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+  Logout
+</div>
+
+<!-- Overlay when logout menu is open -->
+<div class="pos-fixed" (click)="showLogout = !showLogout" *ngIf="showLogout" style="position: fixed; inset: 0; background: rgba(0,0,0,0.2);"></div>
+
+<!-- Additional Content Below the Main Sections -->
+<div style="width: 100%; padding: 50px; background: #f1f4f8; font-family: Arial, sans-serif; color: #333;">
+
+  <!-- Features / Benefits Section -->
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="text-align: center; color: #3f51b5;">Why Businesses Choose Invosense</h2>
+    <div style="display: flex; justify-content: space-between; margin-top: 30px; flex-wrap: wrap;">
+      
+      <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <h3 style="color:#3f51b5;">💡 Smart Extraction</h3>
+        <p>Our ML engine intelligently reads invoices and auto-fills important fields, reducing manual effort by 80%.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <h3 style="color:#3f51b5;">📊 Seamless Reporting</h3>
+        <p>Export your data into Excel, Google Sheets, or your ERP in one click — always ready for audits.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 200px; margin: 15px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <h3 style="color:#3f51b5;">🔐 Industry-Grade Security</h3>
+        <p>End-to-end encrypted storage ensures your invoices and financial data stay confidential and tamper-proof.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div style="margin-top: 80px; text-align: center;">
+    <h2 style="color: #3f51b5;">Ready to simplify your invoice process?</h2>
+    <p>Let Invosense automate your workflow. Focus more on strategy, less on paperwork!</p>
+    
+    <div style="margin-top: 20px;">
+      <button mat-raised-button color="primary" routerLink="/upload-invoice/NEW" style="margin: 10px;">
+        <div class="d-flex align-items-center">
+          <mat-icon class="icon mr-2">upload</mat-icon>
+          <div>Upload Invoice</div>
+        </div>
+      </button>
+      <button mat-raised-button color="accent" routerLink="/view-invoices" style="margin: 10px;">
+        <div class="d-flex align-items-center">
+          <mat-icon class="icon mr-2">visibility</mat-icon>
+          <div>View Invoices</div>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+  
+
+</div>
